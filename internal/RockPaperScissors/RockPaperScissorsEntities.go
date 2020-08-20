@@ -1,31 +1,54 @@
 package RockPaperScissors
 
-// type Base interface {
-// }
+type Base interface {
+	IsTheWinner(x Base) bool
+}
 
-// type base struct {
-// }
+type base struct {
+	Win []Base
+}
 
-// type Rock struct {
-// 	base
-// }
+func (b *base) IsTheWinner(x Base) bool {
+	for _, n := range b.Win {
+		if x == n {
+			return true
+		}
+	}
+	return false
+}
 
-// func NewRock() (o Rock) {
-// 	return Rock{}
-// }
+type Rock struct {
+	*base
+}
 
-// type Paper struct {
-// 	base
-// }
+func NewRock() (o Rock) {
+	return Rock{
+		&base{
+			[]Base{Scissor{}},
+		},
+	}
+}
 
-// func NewPaper() (o Paper) {
-// 	return Paper{}
-// }
+type Paper struct {
+	*base
+}
 
-// type Scissor struct {
-// 	base
-// }
+func NewPaper() (o Paper) {
+	return Paper{
+		&base{
+			[]Base{Rock{}},
+		},
+	}
+}
 
-// func NewScissor() (o Scissor) {
-// 	return Scissor{}
-// }
+type Scissor struct {
+	*base
+}
+
+func NewScissor() (o Scissor) {
+	return Scissor{
+		&base{
+			[]Base{Paper{}},
+		},
+	}
+}
