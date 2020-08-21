@@ -1,7 +1,6 @@
 package RockPaperScissors
 
 import (
-	"fmt"
 	"reflect"
 	"testing"
 
@@ -26,8 +25,6 @@ func TestPlay(t *testing.T) {
 		t.Run(name, func(t *testing.T) {
 			service := NewRockPaperScissorsService()
 			playerResult := service.Play(tc.player1, tc.player2)
-			fmt.Print(reflect.TypeOf(tc.want))
-			fmt.Print(reflect.TypeOf(playerResult))
 			assert.Equal(t, reflect.TypeOf(tc.want), reflect.TypeOf(playerResult))
 		})
 	}

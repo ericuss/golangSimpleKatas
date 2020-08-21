@@ -13,7 +13,7 @@ func NewRockPaperScissorsService() (o RockPaperScissorsService) {
 
 func (o *rockPaperScissorsService) Play(player1 Base, player2 Base) (b Base) {
 	if player1 == player2 {
-		b = player1
+		return player1
 	}
 
 	if player1.IsTheWinner(player2) {

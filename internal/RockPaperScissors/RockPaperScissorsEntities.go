@@ -1,5 +1,7 @@
 package RockPaperScissors
 
+import "reflect"
+
 type Base interface {
 	IsTheWinner(x Base) bool
 }
@@ -10,7 +12,7 @@ type base struct {
 
 func (b *base) IsTheWinner(x Base) bool {
 	for _, n := range b.Win {
-		if x == n {
+		if reflect.TypeOf(x) == reflect.TypeOf(n) {
 			return true
 		}
 	}
