@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  api:
+    image: ${REGISTRY:-lanre}/api:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: Dockerfile  
