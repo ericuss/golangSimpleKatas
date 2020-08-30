@@ -26,7 +26,7 @@ func NewBeerRepository(beers map[int]*beer.Beer) beer.BeerRepository {
 func (r *beerRepository) Fetch() ([]*beer.Beer, error) {
 	r.mtx.Lock()
 	defer r.mtx.Unlock()
-	values := make([]*beer.Beer, len(r.beers))
+	values := make([]*beer.Beer, 0, len(r.beers))
 	for _, value := range r.beers {
 		values = append(values, value)
 	}

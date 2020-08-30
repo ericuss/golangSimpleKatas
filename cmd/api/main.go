@@ -9,7 +9,7 @@ import (
 	beersData "github.com/ericuss/golangSimpleKatas/cmd/beers-data"
 	beer "github.com/ericuss/golangSimpleKatas/pkg"
 	server "github.com/ericuss/golangSimpleKatas/pkg/server"
-	inmem "github.com/ericuss/golangSimpleKatas/pkg/storage/inmem"
+	mongo "github.com/ericuss/golangSimpleKatas/pkg/storage/mongo"
 )
 
 func main() {
@@ -21,7 +21,7 @@ func main() {
 		beers = beersData.Beers
 	}
 
-	repo := inmem.NewBeerRepository(beers)
+	repo := mongo.NewBeerRepository(beers)
 	s := server.New(repo)
 
 	fmt.Println("The beers server is on tap now: http://localhost:8080")

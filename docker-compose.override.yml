@@ -1,6 +1,10 @@
 version: '3.4'
 
 services:
+  mongo:
+    image: "mongo:latest"
+    ports:
+      - "27017-27019:27017-27019"
   api:
     environment:
       - ConnectionStrings__Lanre=${LANRE_DB:-Server=sql.data;Database=Lanre.LanreDb;User Id=sa;Password=Pass@word}

@@ -1,9 +1,12 @@
 package beer
 
 type Beer struct {
-	Id    int     `json:"id"`
-	Name  string  `json:"name,omitempty"`
-	Price float32 `json:"price,omitempty"`
+	ID    string  `bson:"-"`
+	Name  string  `bson:"Name"`
+	Price float64 `bson:"Price"`
+	// ID    string  `json:"id",bson:"-"`
+	// Name  string  `json:"name,omitempty",bson:"Name"`
+	// Price float32 `json:"price,omitempty",bson:"Price"`
 }
 
 type BeerRepository interface {
